@@ -1,0 +1,2 @@
+openshiftlogging:
+  enabled: false

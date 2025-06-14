@@ -1,0 +1,73 @@
+{{- if .Values.openshiftlogging.enabled }}
+apiVersion: "logging.openshift.io/v1"
+kind: "ClusterLogging"
+metadata:
+  name: "instance" 
+  namespace: "openshift-logging"
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
+spec:
+  collection:
+    logs:
+      fluentd:
+        tolerations:
+        - operator: "Exists"
+      type: fluentd
+  logStore:
+    elasticsearch:
+      nodeCount: 3
+      nodeSelector:
+  {{- if or (eq .Values.cluster "prodcas") (eq .Values.cluster "prodtic") }}
+        node-role.kubernetes.io/infralogging: ""
+  {{- else if eq .Values.cluster "homo" }}
+        node-role.kubernetes.io/infra: ""
+  {{- end }}
+      proxy:
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            memory: 256Mi
+      redundancyPolicy: SingleRedundancy
+      resources:
+        limits:
+          memory: 16Gi
+        requests:
+          memory: 8Gi
+      storage:
+        size: 300G
+        storageClassName: thin
+      tolerations:
+        - effect: NoSchedule
+          key: infralogging
+          value: reserved
+        - effect: NoExecute
+          key: infralogging
+          value: reserved
+    retentionPolicy:
+      application:
+        maxAge: 1d
+      audit:
+        maxAge: 7d
+      infra:
+        maxAge: 7d
+    type: elasticsearch
+  managementState: Managed
+  visualization:
+    kibana:
+      nodeSelector:
+  {{- if or (eq .Values.cluster "prodcas") (eq .Values.cluster "prodtic") }}
+        node-role.kubernetes.io/infralogging: ""
+  {{- else if eq .Values.cluster "homo" }}
+        node-role.kubernetes.io/infra: ""
+  {{- end }}
+      replicas: 1
+      tolerations:
+        - effect: NoSchedule
+          key: infralogging
+          value: reserved
+        - effect: NoExecute
+          key: infralogging
+          value: reserved
+    type: kibana
+{{- end }}
