@@ -1,0 +1,14 @@
+namespace: trilio-system
+operator:
+  name: k8s-trilio
+  channel: 5.0.x
+  installPlanApproval: Automatic
+  source: certified-operators
+  sourceNamespace: openshift-marketplace
+  tvkinstancename: tvk-homo
+dataJobResources:
+ requests:
+  cpu: 100m
+  memory: 800Mi
+
+

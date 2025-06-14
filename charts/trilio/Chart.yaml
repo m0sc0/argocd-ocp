@@ -1,0 +1,7 @@
+apiVersion: v2
+name: k8s-trilio
+description: Helm Chart para instalar trilio del dia 2 en OpenShift
+type: application
+version: 0.1.0
+appVersion: 1.0.0
+

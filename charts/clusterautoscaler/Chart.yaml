@@ -1,0 +1,7 @@
+apiVersion: v2
+name: clusterautoscaler
+description: Helm Chart para instalar clusterautoscaler del dia 2 en OpenShift
+type: application
+version: 0.1.0
+appVersion: 1.0.0
+

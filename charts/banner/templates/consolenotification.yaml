@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: banner
+spec:
+  text: {{ .Values.text }}
+  location: BannerTop 
+  link:
+    href: '{{ .Values.url }}'
+    text: {{ .Values.url_text }}
+  color: '{{ .Values.color }}'
+  backgroundColor: '{{ .Values.backgroundcolor }}'

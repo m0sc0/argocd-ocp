@@ -1,0 +1,5 @@
+backgroundcolor: '#ff0000'
+color: '#000'
+url: 'https://www.example.com'
+url_text: 'prod'
+text: Ambiente Produccion

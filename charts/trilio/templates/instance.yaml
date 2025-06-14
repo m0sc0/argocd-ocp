@@ -1,0 +1,21 @@
+apiVersion: triliovault.trilio.io/v1
+kind: TrilioVaultManager
+metadata:
+  name: {{ .Values.operator.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  applicationScope: Cluster
+  componentConfiguration:
+    ingress-controller:
+      enabled: false
+  dataJobResources:
+    requests:
+      cpu: {{ .Values.dataJobResources.requests.cpu }}
+      memory: {{ .Values.dataJobResources.requests.memory }}
+  logLevel: Info
+  metadataJobResources:
+    requests:
+      cpu: 10m
+      memory: 10Mi
+  resources: {}
+  tvkInstanceName: {{ .Values.operator.tvkinstancename }}

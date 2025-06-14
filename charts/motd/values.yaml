@@ -1,0 +1,16 @@
+message_motd: |
+  ##########################################################################
+  #                          ⚠️  ALERTA DE SEGURIDAD  ⚠️                     #
+  #                                                                        #
+  #  🚨 ¡ATENCIÓN! Este es un sistema privado y monitoreado.               #
+  #  🚀 Todo acceso y actividad son registrados y revisados.               #
+  #  🔒 El uso no autorizado está estrictamente prohibido y sancionado.    #
+  #                                                                        #
+  #  ✅ Mantén tus credenciales seguras.                                   #
+  #  ✅ Usa siempre autenticación multifactor cuando sea posible.          #
+  #  ✅ No ejecutes comandos sin entender su impacto.                      #
+  #                                                                        #
+  #  📜 Al acceder, aceptas las políticas de seguridad de la organización. #
+  ##########################################################################
+
+
