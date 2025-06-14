@@ -1,8 +1,0 @@
-namespace: openshift-operators
-operator:
-  name: openshift-gitops-operator
-  channel: latest
-  installPlanApproval: Automatic
-  source: redhat-operators
-  sourceNamespace: openshift-marketplace
-
