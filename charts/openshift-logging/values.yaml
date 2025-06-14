@@ -1,2 +1,2 @@
 openshiftlogging:
-  enabled: false
+  enabled: true
